@@ -27,6 +27,7 @@ def test_package():
 
     date_of_return = date_tomorrow + datetime.timedelta(days=20)
     date_of_return_selector = date_of_return.strftime("%B") + " " + date_of_return.strftime("%d") + ", " + date_tomorrow.strftime("%Y")
+    data_from_returning_selector ='td[aria-label=\"'+ date_of_return_selector +'\"]'
 
     departing_date = driver.find_element(By.CSS_SELECTOR, "div[data-bdd ='farefinder-package-startdate-input']")
     departing_date.click()
@@ -34,6 +35,5 @@ def test_package():
     select_departing_date = driver.find_element(By.CSS_SELECTOR, data_from_departure_selector)
     select_departing_date.click()
 
-    data_from_returning_selector ='td[aria-label=\"'+ date_of_return_selector +'\"]'
     select_returning_date = driver.find_element(By.CSS_SELECTOR, data_from_returning_selector)
     select_returning_date.click()
