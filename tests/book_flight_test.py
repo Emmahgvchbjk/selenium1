@@ -19,14 +19,12 @@ def test_package():
     destination_bar = driver.find_element(By.CSS_SELECTOR, "input[data-bdd='farefinder-package-destination-location-input']")
     destination_bar.send_keys("LAX")
     bundles_button.click()
-#scroll down calendar
-
 
     time.sleep(5)
-# ziua de maine
     date_tomorrow = datetime.date.today() + datetime.timedelta(days=1)
     date_of_departure_selector = date_tomorrow.strftime("%B") + " " + date_tomorrow.strftime("%d") + ", " + date_tomorrow.strftime("%Y")
     data_from_departure_selector= 'td[aria-label=\"'+ date_of_departure_selector +'\"]'
+
     date_of_return = date_tomorrow + datetime.timedelta(days=20)
     date_of_return_selector = date_of_return.strftime("%B") + " " + date_of_return.strftime("%d") + ", " + date_tomorrow.strftime("%Y")
 
@@ -34,7 +32,6 @@ def test_package():
     departing_date.click()
     destination_bar.send_keys(Keys.PAGE_DOWN)
     select_departing_date = driver.find_element(By.CSS_SELECTOR, data_from_departure_selector)
-    select_departing_date.click()
     select_departing_date.click()
 
     data_from_returning_selector ='td[aria-label=\"'+ date_of_return_selector +'\"]'
